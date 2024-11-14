@@ -35,4 +35,3 @@ def recognize():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
