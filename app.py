@@ -1,12 +1,14 @@
-from flask import Flask, request, jsonify
+from flask import Flask, render_template, request, jsonify
 import speech_recognition as sr
 
 app = Flask(__name__)
 
+# Route to serve the HTML page
 @app.route('/')
 def index():
-    return 'Welcome to Speech Recognition Flask App!'
+    return render_template('index.html')
 
+# Route to handle speech recognition
 @app.route('/recognize', methods=['POST'])
 def recognize():
     recognizer = sr.Recognizer()
@@ -35,3 +37,4 @@ def recognize():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
